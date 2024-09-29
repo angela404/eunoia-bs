@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUNOIA</title>
+    <link rel="stylesheet" href="/css/loading.css">
+</head>
+<body>
+    <div id="loader">
+        <h1 data-text="EUNOIA" class="loader">EUNOIA</h1>
+    </div>
+<div id="main-content">
+
+    <section id="landing-page">
+        <div class="title-mood">
+            <h1>How's ur Mood Today?</h1>
+        </div>
+        <div class="wrapper">
+        <div class="section">
+          <ul class="emojis">
+            <li class="slide-emoji"><img src="/images/happy.png" alt=""></li>
+            <li><img src="/images/good.png" alt=""></li>
+            <li><img src="/images/bad.png" alt=""></li>
+            <li><img src="/images/happy.png" alt=""></li>
+            <li><img src="/images/good.png" alt=""></li>
+          </ul>
+        </div>
+        <div class="slider">
+          <div class="thumb"><span></span></div>
+          <div class="progress-bar"></div>
+          <input type="range" min="0" value="0" max="100">
+        </div>
+      </div>
+      <div class="btn">
+        <a href="index.html">Next</a>
+      </div>
+    </section>
+</div>
+
+    <script src="/js/loading.js"></script>
+
+  <script>
+    const body = document.querySelector("body");
+    const emoji = document.querySelector(".slide-emoji");
+    const input = document.querySelector("input");
+    const bar = document.querySelector(".progress-bar");
+    const thumb = document.querySelector(".thumb");
+    input.oninput = ()=>{
+      let sliderValue = input.value;
+      thumb.style.left = sliderValue + '%';
+      bar.style.width = sliderValue + '%';
+      if(sliderValue < 20){
+        emoji.style.marginLeft = "0px";
+        body.classList.add("like");
+        body.classList.remove("confuse");
+        body.classList.remove("angry");
+      }
+      if(sliderValue >= 20){
+        emoji.style.marginLeft = "-140px";
+        body.classList.add("confuse");
+        body.classList.remove("angry");
+        body.classList.remove("like");
+      }
+      if(sliderValue >= 40){
+        emoji.style.marginLeft = "-280px";
+      }
+      if(sliderValue >= 60){
+        emoji.style.marginLeft = "-420px";
+        body.classList.add("angry");
+        body.classList.remove("confuse");
+        body.classList.remove("like");
+      }
+      if(sliderValue >= 80){
+        emoji.style.marginLeft = "-560px";
+      }
+    }
+  </script>
+
+</body>
+</html>

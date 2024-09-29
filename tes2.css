@@ -1,0 +1,9 @@
+.konten{
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+
+img{
+    height: 100px;
+}
